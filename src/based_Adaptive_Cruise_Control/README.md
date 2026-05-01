@@ -32,3 +32,120 @@
    ```bash
    git clone https://github.com/YOUR_USERNAME/RL-Based-Adaptive-Cruise-Control.git
    cd RL-Based-Adaptive-Cruise-Control
+   ```
+
+2. 安装所需依赖：
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## 🚀 快速开始
+
+### 训练模型
+
+运行以下命令开始训练 ACC 智能体：
+
+```bash
+python train.py
+```
+
+训练过程中，模型会定期保存到 `models/` 目录下。
+
+### 测试模型
+
+使用训练好的模型进行测试：
+
+```bash
+python test.py --model models/best_model.zip
+```
+
+### 可视化结果
+
+训练完成后，可以使用以下命令生成结果可视化：
+
+```bash
+python visualize.py --model models/best_model.zip
+```
+
+---
+
+## 📁 项目结构
+
+```
+RL-Based-Adaptive-Cruise-Control/
+├── acc_env/                  # 自适应巡航控制环境
+│   ├── __init__.py
+│   └── acc_env.py           # 环境定义
+├── models/                  # 保存训练好的模型
+├── utils/                   # 工具函数
+│   ├── __init__.py
+│   └── reward_functions.py  # 奖励函数定义
+├── config.py                # 配置文件
+├── train.py                 # 训练脚本
+├── test.py                  # 测试脚本
+├── visualize.py             # 可视化脚本
+├── requirements.txt         # 依赖列表
+└── README.md                # 项目说明
+```
+
+---
+
+## 📝 配置说明
+
+主要配置参数位于 `config.py` 文件中：
+
+- `TARGET_SPEED`: 目标巡航速度 (m/s)
+- `SAFETY_DISTANCE`: 安全距离 (m)
+- `MAX_ACCELERATION`: 最大加速度 (m/s²)
+- `MAX_DECELERATION`: 最大减速度 (m/s²)
+- `DT`: 时间步长 (s)
+- `EPISODE_LENGTH`: 每个回合的最大步数
+- `TRAINING_TIMESTEPS`: 总训练步数
+- `SAVE_FREQUENCY`: 模型保存频率
+
+---
+
+## 🔧 自定义环境
+
+ACC 环境模拟了一个简化的车辆跟驰场景：
+
+- **状态空间**：包含自车速度、前车速度、两车相对距离等信息。
+- **动作空间**：连续动作，表示加速度指令。
+- **奖励函数**：综合考虑速度跟踪误差、安全距离保持和加速度平滑性。
+
+如需修改环境参数或奖励函数，请参考 `acc_env/acc_env.py` 和 `utils/reward_functions.py` 文件。
+
+---
+
+## 📈 结果分析
+
+训练完成后，可以通过以下指标评估模型性能：
+
+1. **速度跟踪误差**：实际速度与目标速度的偏差
+2. **安全距离保持**：与前车的距离是否始终保持在安全范围内
+3. **乘坐舒适度**：加速度变化的平滑程度
+4. **燃油效率**：平均加速度和速度的关系
+
+---
+
+## 🤝 贡献指南
+
+欢迎提交 Issue 和 Pull Request 来改进这个项目！
+
+---
+
+## 📄 许可证
+
+本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件。
+
+---
+
+## 🙏 致谢
+
+感谢以下项目和资源的启发：
+
+- [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3)
+- [OpenAI Gym](https://github.com/openai/gym)
+- [CARLA Simulator](https://github.com/carla-simulator/carla)
