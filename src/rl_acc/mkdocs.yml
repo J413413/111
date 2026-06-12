@@ -1,9 +1,0 @@
-site_name: RL-ACC
-site_description: 基于强化学习的自适应巡航控制研究
-site_author: RL-ACC Team
-
-nav:
-  - 首页: index.md
-
-theme:
-  name: readthedocs
