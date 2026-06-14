@@ -81,25 +81,25 @@ AEB_FULL_DECEL = -6.0
 # ============ 模型轻量化配置 ============
 # 剪枝参数
 PRUNING_ENABLED = True
-PRUNING_RATIO = 0.3  # 剪枝比例（0-1）
-PRUNING_THRESHOLD = None  # 剪枝阈值，None表示自动计算
+PRUNING_RATIO = 0.3
+PRUNING_THRESHOLD = None
 
 # 量化参数
 QUANTIZATION_ENABLED = True
-QUANTIZATION_TYPE = "dynamic"  # 'dynamic' 或 'static'
+QUANTIZATION_TYPE = "dynamic"
 
 # 知识蒸馏参数
 DISTILLATION_ENABLED = False
-DISTILLATION_TEMPERATURE = 3.0  # 温度参数
-DISTILLATION_ALPHA = 0.7  # 软标签权重
+DISTILLATION_TEMPERATURE = 3.0
+DISTILLATION_ALPHA = 0.7
 
 # 模型导出参数
-EXPORT_FORMAT = "pytorch"  # 'pytorch', 'onnx', 'torchscript'
+EXPORT_FORMAT = "pytorch"
 MODEL_SAVE_PATH = "models/optimized_acc_model.pt"
 
 # 性能目标
-TARGET_MODEL_SIZE_MB = 1.0  # 目标模型大小（MB）
-TARGET_INFERENCE_TIME_MS = 10.0  # 目标推理时间（ms）
+TARGET_MODEL_SIZE_MB = 1.0
+TARGET_INFERENCE_TIME_MS = 10.0
 
 # ============ 其他配置 ============
 HUTB_ENABLED = True
